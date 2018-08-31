@@ -40,7 +40,7 @@ if(strlen($controller) == 0 )
 if(count($parts)>2)
     $method = $parts[2];
 else
-    $method = 'index';
+    $method = 'error';
 $params = [];
 for($i = 3 ; $i<count($parts); $i++)
     $params[] = $parts[$i];
@@ -48,7 +48,6 @@ for($i = 3 ; $i<count($parts); $i++)
 str_rep("-","_",$method);
 
 $controllerClassName = $controller."Controller";
-
 try {
     if (class_exists($controllerClassName)) {
         $controllerInstance = new $controllerClassName();

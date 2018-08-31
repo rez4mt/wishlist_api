@@ -14,6 +14,9 @@ class Config{
     /* @var string*/
     const DB_NAME = "";
 
+    /* @var string*/
+    const DATE_FORMAT = "yyyyMMddHHmmss";
+
     /* @var PDO*/
     public static $DB = [];
     /* @var array*/

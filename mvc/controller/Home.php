@@ -9,11 +9,6 @@ class HomeController
 {
     public function error()
     {
-
-    }
-    public function index()
-    {
-        var_dump("index is here");
-
+        output('error',['message'=>'501']);
     }
 }

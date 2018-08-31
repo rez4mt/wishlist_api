@@ -10,21 +10,17 @@
 function __autoload($class_name)
 {
 
-
     if(strhas("Controller",$class_name))
     {
         str_rm("Controller",$class_name);
         classify($class_name);
-        try{
-            if(!@require_once (__DIR__ . "/../mvc/controller/$class_name.php"))
-            {
-                throw new Exception("File not found.");
-            }
-        }catch (Exception $e){
-
+        if(is_file(__DIR__ . "/../mvc/controller/$class_name.php") )
+        {
+            include_once (__DIR__ . "/../mvc/controller/$class_name.php");
+            return;
         }
         //load controller
-        return;
+        output('error',['message'=>'501']);
     }
     if(strhas("View",$class_name))
     {
@@ -32,14 +28,12 @@ function __autoload($class_name)
         classify($class_name);
 
         //load controller
-        try{
-            if(!@require_once (__DIR__ . "/../mvc/view/$class_name.php"))
-            {
-                throw new Exception("View not found.");
-            }
-        }catch (Exception $e){
+        if(is_file(__DIR__ . "/../mvc/view/$class_name.php"))
+        {
+            include_once (__DIR__ . "/../mvc/view/$class_name.php");
+            return;
         }
-        return;
+        output('error',['message'=>'501']);
     }
 
     if(strhas("Module",$class_name))
@@ -47,25 +41,23 @@ function __autoload($class_name)
         str_rm("Module",$class_name);
         classify($class_name);
         //load controller
-        try{
-            if(!@require_once (__DIR__ . "/../mvc/module/$class_name.php"))
-            {
-                throw new Exception("Module not found.");
-            }
-        }catch (Exception $e){
-
+        if(is_file(__DIR__ . "/../mvc/module/$class_name.php"))
+        {
+            include_once __DIR__ . "/../mvc/module/$class_name.php";
+            return;
         }
-        return;
+        output('error',['message'=>'501']);
     }
 
     classify($class_name);
 
-    if(file_exists(__DIR__."/plugins/$class_name.php"))
+    if(file_exists(__DIR__."/../plugins/$class_name.php"))
     {
         include __DIR__."/../plugins/$class_name.php";
         return;
     }
 
+    output('error',['message'=>'500']);
 
 
 }

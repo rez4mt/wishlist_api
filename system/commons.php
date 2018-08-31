@@ -57,3 +57,26 @@ function getBaseUrl()
 {
     return Config::$Site['base_url'];
 }
+
+
+function output($status,$data)
+{
+    $output_data = [
+        'status' => $status
+    ];
+
+    if(isset($data['message']))
+    {
+        if(Errors::exists($data['message']))
+            $output_data['message'] = Errors::getErrorMsg($data['message']);
+        else
+            $output_data['message'] = $data['message'];
+    }
+
+    if(isset($data['payload']))
+        $output_data['payload'] = $data['payload'];
+
+    echo json_encode($output_data);
+    die;
+
+}
