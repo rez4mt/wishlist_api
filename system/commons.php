@@ -13,9 +13,10 @@ function getConn()
 
     try{
         Config::$DB = new PDO(
-            "mysql:host=localhost;dbname=".Config::DB_NAME,
-            Config::DB_USERNAME,
-            Config::DB_PASSWORD,Config::$DB_CONFIG
+            "mysql:host=localhost;dbname=".Config::DB['name'],
+            Config::DB['username'],
+            Config::DB['password'],
+            Config::DB['config']
         );
     }catch (Exception $e){
         echo ($e->getTraceAsString());
@@ -55,7 +56,7 @@ function getRequestUri()
 }
 function getBaseUrl()
 {
-    return Config::$Site['base_url'];
+    return Config::SITE['base_url'];
 }
 
 

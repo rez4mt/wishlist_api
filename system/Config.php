@@ -7,24 +7,26 @@
  */
 
 class Config{
-    /* @var string*/
-    const DB_USERNAME = "";
-    /* @var string*/
-    const DB_PASSWORD = "";
-    /* @var string*/
-    const DB_NAME = "";
-
+    /* @var array*/
+    const DB = [
+        'name'=>'',
+        'username'=>'',
+        'password'=>'',
+        'config'=>[
+        ]
+    ];
     /* @var string*/
     const DATE_FORMAT = "yyyyMMddHHmmss";
 
     /* @var PDO*/
-    public static $DB = [];
-    /* @var array*/
-    public static $DB_CONFIG = [];
+    public static $DB = [
 
+    ];
     /* @var array*/
-    public static $Site = [
+    const SITE = [
         'base_url'=>'/s/Base',
-        'route'=>[]
+        'route'=>[
+
+        ]
     ];
 }

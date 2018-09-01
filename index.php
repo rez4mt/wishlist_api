@@ -21,7 +21,7 @@ if (strlen($queryString)>0){
     str_rm('?' . $queryString, $uri);
 }
 $uri = urldecode($uri);
-foreach (Config::$Site['route'] as $alias=>$target)
+foreach (Config::SITE['route'] as $alias=>$target)
 {
     $alias = '^'.$alias;
     str_rep('/',"\/",$alias);
