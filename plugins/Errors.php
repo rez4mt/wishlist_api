@@ -9,12 +9,12 @@ class Errors{
 
     private static $_Errors = [
 
-        '0'=>'Invalid Request Format',
-        '1'=>'Request out of date',
-        '2'=>'Parameters not found',
-        '500'=>'Internal Error',
-        '501'=>'Invalid Request Method',
-        'unk'=>'Unknown error'
+        '0'=>   'invalid_format',
+        '1'=>   'invalid_time',
+        '2'=>   'missing_parameter',
+        '500'=> 'internal_error',
+        '501'=> 'missing_method',
+        'unk'=> 'unknown_error'
         ];
 
     static function exists($code)
