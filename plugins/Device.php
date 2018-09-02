@@ -8,7 +8,7 @@
 
 class Device
 {
-    private $_category,$_model,$_size,$_uid,$_os,$_type;
+    private $_category,$_model,$_size,$_uid,$_os,$_type,$_notification_id;
 
     public function __construct($data)
     {
@@ -18,6 +18,7 @@ class Device
         $this->_uid = $data->uid;
         $this->_os = $data->os;
         $this->_type = $data->type;
+        $this->_notification_id = $data->notification_id;
     }
 
 
@@ -55,6 +56,11 @@ class Device
     public function getType()
     {
         return $this->_type;
+    }
+    /* @return string*/
+    public function getNotificationId()
+    {
+        return $this->_notification_id;
     }
 
 }
