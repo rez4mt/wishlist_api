@@ -19,9 +19,7 @@ class Config{
     const DATE_FORMAT = "yyyyMMddHHmmss";
 
     /* @var PDO*/
-    public static $DB = [
-
-    ];
+    public static $DB = null;
     /* @var array*/
     const SITE = [
         'base_url'=>'/s/Base',
