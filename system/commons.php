@@ -82,11 +82,15 @@ function output($status,$data)
             $output_data['message'] = Errors::getErrorMsg($data['message']);
         else
             $output_data['message'] = $data['message'];
-    }
-
-    if(isset($data['payload']))
+    }else if(isset($data['payload']))
         $output_data['payload'] = $data['payload'];
-
+    else if($status == 'ok')
+    {
+        $output_data['payload'] = $data;
+    }else if($data == "error")
+    {
+        $output_data['message'] = Errors::getErrorMsg($data);
+    }
     echo json_encode($output_data);
     die;
 
