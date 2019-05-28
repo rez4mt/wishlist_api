@@ -87,7 +87,7 @@ function output($status,$data)
     else if($status == 'ok')
     {
         $output_data['payload'] = $data;
-    }else if($data == "error")
+    }else if($status == "error")
     {
         $output_data['message'] = Errors::getErrorMsg($data);
     }

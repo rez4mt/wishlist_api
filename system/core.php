@@ -49,7 +49,7 @@ function __autoload($class_name)
         output('error',['message'=>'501']);
     }
 
-    classify($class_name);
+    //classify($class_name);
 
     if(file_exists(__DIR__."/../plugins/$class_name.php"))
     {
