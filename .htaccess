@@ -1,0 +1,5 @@
+Options -Indexes
+
+RewriteEngine On
+RewriteBase /s/wishlist
+RewriteRule .* index.php [L]
