@@ -12,6 +12,7 @@ class Errors{
         '0'=>   'invalid_format',
         '1'=>   'invalid_time',
         '2'=>   'missing_parameter',
+        '3'=>   'board not found',
         '500'=> 'internal_error',
         '501'=> 'missing_method',
         'unk'=> 'unknown_error'
@@ -27,6 +28,6 @@ class Errors{
         if(isset(self::$_Errors[$error]))
             return self::$_Errors[$error];
         else
-            return self::$_Errors['unk'];
+            return $error;
     }
 }
